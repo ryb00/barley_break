@@ -1,4 +1,13 @@
 body{
     background-image:url("../images/backgrounNumbers.jpg");
     object-fit: cover;
+    text-align: center;    
+}
+
+.main{
+    margin:0 auto;
+    border: 10px solid #8941cd;
+    background-color: #a596b3;
+    width: 400px;
+    aspect-ratio: 1 / 1;
 }
