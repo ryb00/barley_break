@@ -4,10 +4,33 @@ body{
     text-align: center;    
 }
 
+h1{
+    margin:0 auto;
+    font-size: xxx-large;
+    text-transform: uppercase;
+}
+
+p{
+    font-size: xx-large;
+}
+
+.newGame{
+    margin:0 auto;
+    font-size: xx-large;
+}
+
 .main{
     margin:0 auto;
-    border: 10px solid #8941cd;
-    background-color: #a596b3;
+    border: 10px solid #9ea5c1;
+    background-color: #e0e2ee;
     width: 400px;
     aspect-ratio: 1 / 1;
+}
+
+.numbers{
+    aspect-ratio: 1 / 1;
+    width: 100px;
+    margin:0;
+    padding: 0;
+    font-size: xxx-large;
 }
