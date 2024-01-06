@@ -11,4 +11,16 @@ function newGame(){
         fifteenNumbers.push(currentNumber)
     }
     }
+    gameNumbers[15].innerHTML="*";
+}
+
+function moveByDoubleClick(event){
+    this.id;
+}
+
+newGame();
+
+let doubleClickEvent = document.getElementsByClassName("numbers");
+for (let i = 0; i < 15; i++){
+doubleClickEvent[i].addEventListener('dblclick', moveByDoubleClick);
 }
