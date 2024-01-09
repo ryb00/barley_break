@@ -1,23 +1,27 @@
 var buttonDragStart;
 var buttonDragEnd;
 
+// Function newGame() fills the playing field with numbers 
+// from 0 to 15 in random order
 function newGame() {
-    // let fifteenNumbers = [];
-    // let gameNumbers = document.getElementsByClassName("numbers");
-    // let currentNumber;
-    // let i = 0;
-    // while (fifteenNumbers.length < 15) {
-    //     currentNumber = Math.floor(Math.random() * 15) + 1;
-    //     if (!fifteenNumbers.includes(currentNumber)) {
-    //         gameNumbers[i].innerHTML = currentNumber;
-    //         i = i + 1;
-    //         fifteenNumbers.push(currentNumber)
-    //     }
-    // }
-    // gameNumbers[15].innerHTML = 0;
- }
+    let fifteenNumbers = [];
+    let gameNumbers = document.getElementsByClassName("numbers");
+    let currentNumber;
+    let i = 0;
+    while (fifteenNumbers.length < 16) {
+        currentNumber = Math.floor(Math.random() * 16);
+        if (!fifteenNumbers.includes(currentNumber)) {
+            gameNumbers[i].innerHTML = currentNumber;
+            i = i + 1;
+            fifteenNumbers.push(currentNumber)
+        }
+    }
+}
 
-function moveByDoubleClick(event) {
+// Function moveByClick(event) is triggered by double-clicking the mouse or 
+// touching on a mobile device. If the pressed key is adjacent to a key with value 0, 
+// then the values ​​​​in the buttons change. After this, function GameOver() is called.
+function moveByClick(event) {
     let currentValue = this.textContent;
     if (currentValue != 0) {
         let currentId = this.id;
@@ -48,21 +52,23 @@ function moveByDoubleClick(event) {
                 }
             }
         }
-       
     }
-    
+
     GameOver()
 }
 
+// The function moveDragStart(event) is called when you start dragging 
+// an element with the mouse.
 function moveDragStart(event) {
     delete buttonDragStart;
     buttonDragStart = this;
 }
 
+// Function moveDragEnd(event) is called when you finish dragging an element with the mouse. 
+// If the second element contains 0, the elements are swapped. After this function GameOver() is called
 function moveDragEnd(event) {
     delete buttonDragEnd;
     buttonDragEnd = this;
-
     if ((buttonDragStart !== buttonDragEnd) && (buttonDragEnd.textContent == 0)) {
         let rowStart = parseInt(buttonDragStart.id.charAt(2));
         let columnStart = parseInt(buttonDragStart.id.charAt(3));
@@ -71,12 +77,12 @@ function moveDragEnd(event) {
         if ((Math.abs(rowStart - rowEnd) + Math.abs(columnStart - columnEnd)) == 1) {
             buttonDragEnd.innerHTML = buttonDragStart.innerHTML;
             buttonDragStart.innerHTML = 0;
-            
         }
     }
     GameOver()
 }
 
+// Function GameOver() checks if the game is over. If yes, a message about this is displayed.
 function GameOver() {
     let gameWin = true;
     let value = 1;
@@ -88,12 +94,10 @@ function GameOver() {
                 console.log(value);
                 console.log(parseInt(document.getElementById("id" + i + j).textContent) !== parseInt(value));
                 if (value < 16) {
-                    
                     if (parseInt(document.getElementById("id" + i + j).textContent) !== parseInt(value)) {
                         gameWin = false;
                         break;
                     }
-                    
                 }
                 value = value + 1;
             }
@@ -102,19 +106,18 @@ function GameOver() {
             }
         }
     }
-    
     if (gameWin == true) {
         let playAgain = confirm("You won! Will you play again?");
-        if (playAgain) {newGame()} 
+        if (playAgain) { newGame() }
     }
 }
 
-// newGame();
+newGame();
 
 let ClickEvent = document.getElementsByClassName("numbers");
 for (let i = 0; i < 16; i++) {
-    ClickEvent[i].addEventListener('dblclick', moveByDoubleClick);
+    ClickEvent[i].addEventListener('dblclick', moveByClick);
     ClickEvent[i].addEventListener('mousedown', moveDragStart);
     ClickEvent[i].addEventListener('mouseup', moveDragEnd);
-    ClickEvent[i].addEventListener('touchstart', moveByDoubleClick);
-    }
+    ClickEvent[i].addEventListener('touchstart', moveByClick);
+}
