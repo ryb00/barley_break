@@ -2,19 +2,19 @@ var buttonDragStart;
 var buttonDragEnd;
 
 function newGame() {
-    let fifteenNumbers = [];
-    let gameNumbers = document.getElementsByClassName("numbers");
-    let currentNumber;
-    let i = 0;
-    while (fifteenNumbers.length < 15) {
-        currentNumber = Math.floor(Math.random() * 15) + 1;
-        if (!fifteenNumbers.includes(currentNumber)) {
-            gameNumbers[i].innerHTML = currentNumber;
-            i = i + 1;
-            fifteenNumbers.push(currentNumber)
-        }
-    }
-    gameNumbers[15].innerHTML = 0;
+    // let fifteenNumbers = [];
+    // let gameNumbers = document.getElementsByClassName("numbers");
+    // let currentNumber;
+    // let i = 0;
+    // while (fifteenNumbers.length < 15) {
+    //     currentNumber = Math.floor(Math.random() * 15) + 1;
+    //     if (!fifteenNumbers.includes(currentNumber)) {
+    //         gameNumbers[i].innerHTML = currentNumber;
+    //         i = i + 1;
+    //         fifteenNumbers.push(currentNumber)
+    //     }
+    // }
+    // gameNumbers[15].innerHTML = 0;
  }
 
 function moveByDoubleClick(event) {
@@ -78,8 +78,6 @@ function moveDragEnd(event) {
 }
 
 function GameOver() {
-   
-
     let gameWin = true;
     let value = 1;
     if (gameWin == true) {
@@ -111,11 +109,12 @@ function GameOver() {
     }
 }
 
-newGame();
+// newGame();
 
 let ClickEvent = document.getElementsByClassName("numbers");
 for (let i = 0; i < 16; i++) {
     ClickEvent[i].addEventListener('dblclick', moveByDoubleClick);
     ClickEvent[i].addEventListener('mousedown', moveDragStart);
     ClickEvent[i].addEventListener('mouseup', moveDragEnd);
-}
+    ClickEvent[i].addEventListener('touchstart', moveByDoubleClick);
+    }
