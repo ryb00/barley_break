@@ -15,7 +15,7 @@ function newGame() {
         }
     }
     gameNumbers[15].innerHTML = 0;
-}
+ }
 
 function moveByDoubleClick(event) {
     let currentValue = this.textContent;
@@ -48,7 +48,10 @@ function moveByDoubleClick(event) {
                 }
             }
         }
+       
     }
+    
+    GameOver()
 }
 
 function moveDragStart(event) {
@@ -59,17 +62,52 @@ function moveDragStart(event) {
 function moveDragEnd(event) {
     delete buttonDragEnd;
     buttonDragEnd = this;
-    // console.log(buttonDragStart);
-    // console.log(buttonDragEnd);
+
     if ((buttonDragStart !== buttonDragEnd) && (buttonDragEnd.textContent == 0)) {
         let rowStart = parseInt(buttonDragStart.id.charAt(2));
         let columnStart = parseInt(buttonDragStart.id.charAt(3));
         let rowEnd = parseInt(buttonDragEnd.id.charAt(2));
         let columnEnd = parseInt(buttonDragEnd.id.charAt(3));
         if ((Math.abs(rowStart - rowEnd) + Math.abs(columnStart - columnEnd)) == 1) {
-            buttonDragEnd.textContent = buttonDragStart.textContent;
-            buttonDragStart.textContent = 0
+            buttonDragEnd.innerHTML = buttonDragStart.innerHTML;
+            buttonDragStart.innerHTML = 0;
+            
         }
+    }
+    GameOver()
+}
+
+function GameOver() {
+   
+
+    let gameWin = true;
+    let value = 1;
+    if (gameWin == true) {
+        for (let i = 1; i < 5; i++) {
+            for (let j = 1; j < 5; j++) {
+                console.log(document.getElementById("id" + i + j));
+                console.log(document.getElementById("id" + i + j).textContent);
+                console.log(value);
+                console.log(parseInt(document.getElementById("id" + i + j).textContent) !== parseInt(value));
+                if (value < 16) {
+                    
+                    if (parseInt(document.getElementById("id" + i + j).textContent) !== parseInt(value)) {
+                        gameWin = false;
+                        break;
+                    }
+                    
+                }
+                value = value + 1;
+            }
+            if (gameWin == false) {
+                break
+            }
+        }
+    }
+    
+    if (gameWin == true) {
+        let playAgain = confirm("You won! Will you play again?");
+        if (playAgain) {newGame()} 
     }
 }
 
@@ -78,8 +116,6 @@ newGame();
 let ClickEvent = document.getElementsByClassName("numbers");
 for (let i = 0; i < 16; i++) {
     ClickEvent[i].addEventListener('dblclick', moveByDoubleClick);
-    //ClickEvent[i].addEventListener('ondragstart', moveDragStart);
-    //ClickEvent[i].addEventListener('dragend', moveDragEnd);
     ClickEvent[i].addEventListener('mousedown', moveDragStart);
     ClickEvent[i].addEventListener('mouseup', moveDragEnd);
 }
