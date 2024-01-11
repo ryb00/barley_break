@@ -53,7 +53,6 @@ function moveByClick(event) {
             }
         }
     }
-
     GameOver()
 }
 
