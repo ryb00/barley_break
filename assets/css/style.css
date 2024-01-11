@@ -21,6 +21,7 @@ p{
 }
 
 .main{
+    position: relative;
     margin:0 auto;
     border: 10px solid #9ea5c1;
     background-color: #e0e2ee;
