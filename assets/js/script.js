@@ -111,8 +111,6 @@ function GameOver() {
     }
 }
 
-document.querySelector('.numbers').clientWidth = document.querySelector('.main')/4;//For correct display in Safari
-
 newGame();
 
 let ClickEvent = document.getElementsByClassName("numbers");
