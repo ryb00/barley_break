@@ -1,39 +1,63 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+#BARLEY BREAK
 
-Welcome,
+The goal of the Barley break game is to arrange the numbers from 1 to 15 in order, having only one free field (field 0).
 
-This is the Code Institute student template for Codeanywhere. If you are using Gitpod then you need [this template](https://github.com/Code-Institute-Org/gitpod-full-template) instead.  We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+##My game on different sizes
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **August 30th, 2023**
+###Laptop
 
-## Codeanywhere Reminders
+![Laptop](/assets/images/laptop.png)
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere, in the terminal, type:
+###Tablet
 
-`python3 -m http.server`
+![Tablet](/assets/images/tablet.png)
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+###Mobile
 
-To run a frontend (HTML, CSS, Javascript only) application in Codeanywhere with no-cache, you can use this alias for `python3 -m http.server`.
+![Mobile](/assets/images/phone.png)
 
-`http_server`
+##Existing Features
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+###Button "New game"
 
-A button should appear to click: _Open Preview_ or _Open Browser_.
+![Button](/assets/images/Button.png)
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+When you click on the "New Game" button, the playing field is refilled with data.
 
-To log into the Heroku toolbelt CLI:
+###Playing field
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+![Playing field](/assets/images/GameArea.png)
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+On the playing field, the player can move numbers to cell 0 from nearby cells (top, bottom, left, right). To do this, the doubleclick and drag mouse events are used. The mobile device uses a touch event.
 
----
+##Testing
 
-Happy coding!
+The site was tested in the Chrome browser on different devices (phone, tablet, laptop, computer). No errors found.
+
+##Validator Testing
+
+###HTML
+
+No errors were returned when passing through the official W3C validator.
+
+###CSS
+
+No errors were found when passing through the official (Jigsaw) validator
+
+###JavaScript
+
+No errors were found when passing through the official Jshint validator.
+
+The following metrics were returned:
+1. There are 5 functions in this file.
+2. Function with the largest signature take 1 arguments, while the median is 1.
+3. Largest function has 20 statements in it, while the median is 11.
+4. The most complex function has a cyclomatic complexity value of 9 while the median is 4.
+
+##Deployment
+
+The site was deployed to GitHub pages. Link https://ryb00.github.io/barley_break/
+
+##Credits
+
+The favicon was taken from https://favicon.io/ The image were taken from https://www.pexels.com/. Information when writing the code was taken from https://www.w3schools.com/
