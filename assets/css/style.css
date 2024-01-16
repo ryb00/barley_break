@@ -1,6 +1,7 @@
 body{
     background-image:url("../images/backgrounNumbers.jpg");
     object-fit: cover;
+    background: no-repeat;
     text-align: center;    
 }
 
