@@ -88,10 +88,6 @@ function GameOver() {
     if (gameWin == true) {
         for (let i = 1; i < 5; i++) {
             for (let j = 1; j < 5; j++) {
-                console.log(document.getElementById("id" + i + j));
-                console.log(document.getElementById("id" + i + j).textContent);
-                console.log(value);
-                console.log(parseInt(document.getElementById("id" + i + j).textContent) !== parseInt(value));
                 if (value < 16) {
                     if (parseInt(document.getElementById("id" + i + j).textContent) !== parseInt(value)) {
                         gameWin = false;
